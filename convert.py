@@ -29,10 +29,11 @@ def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile', help='The file to convert')
     parser.add_argument('outputfile',help='The destination file')
-    parser.add_argument('--tilesize', default=256, help='Tile size')
-    parser.add_argument('--compression', default=6, help='Compression')
+    parser.add_argument('--tilesize', default=256, type=int, help='Tile size')
     parser.add_argument(
-        '--resolutions', default=8, help='Number of sub-resolutions')
+        '--compression', default=6, type=int, help='Compression')
+    parser.add_argument(
+        '--resolutions', default=8, type=int, help='Number of sub-resolutions')
     parser.add_argument(
         '--verbose', '-v', action='count', default=0,
         help='Increase the command verbosity')
