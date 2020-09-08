@@ -14,7 +14,7 @@ def convert(inputfile, outputfile, tilesize=256, compression=6, resolutions=8):
     image = tifffile.imread(inputfile)
 
     print("Writing %s" % outputfile)
-    with tifffile.TiffWriter(outputfile], bigtiff=True) as tif:
+    with tifffile.TiffWriter(outputfile, bigtiff=True) as tif:
       options = {'tile': (tilesize, tilesize), 'compress': compression}
       tif.save(image, subifds=resolutions, **options)
       for _ in range(resolutions):
@@ -29,10 +29,10 @@ def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument('inputfile', help='The file to convert')
     parser.add_argument('outputfile',help='The destination file')
-    parser.add_argument('tilesize', default=256, help='Tile size')
-    parser.add_argument('compression', default=6, help='Compression')
+    parser.add_argument('--tilesize', default=256, help='Tile size')
+    parser.add_argument('--compression', default=6, help='Compression')
     parser.add_argument(
-        'resolutions', default=8, help='Number of sub-resolutions')
+        '--resolutions', default=8, help='Number of sub-resolutions')
     parser.add_argument(
         '--verbose', '-v', action='count', default=0,
         help='Increase the command verbosity')
