@@ -1,0 +1,3 @@
+tifffile
+opencv-python
+imagecodecs
