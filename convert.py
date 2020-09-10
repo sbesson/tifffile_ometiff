@@ -20,7 +20,7 @@ def convert(inputfile, outputfile, tilesize=256, compression=6, resolutions=8):
       for _ in range(resolutions):
         image = cv2.resize(
             image,
-            (image.shape[0] // 2, image.shape[1] // 2),
+            (image.shape[1] // 2, image.shape[0] // 2),
             interpolation=cv2.INTER_LINEAR)
         tif.save(image, **options)
 
